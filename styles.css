@@ -1,0 +1,134 @@
+:root {
+    --color-primario: #6c5ce7;
+    --color-secundario: #a66efa;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(45deg, var(--color-primario), var(--color-secundario));
+    background-size: 400% 400%;
+    animation: fondoDinamico 15s ease infinite;
+}
+
+@keyframes fondoDinamico {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.contenedor {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+}
+
+.tarjeta {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.tarjeta.error {
+    border: 2px solid #ff4444;
+    animation: vibrar 0.5s;
+}
+
+@keyframes vibrar {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+.cabecera {
+    margin-bottom: 2rem;
+}
+
+.icono {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    animation: flotar 3s ease-in-out infinite;
+}
+
+@keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+h1 {
+    color: #2d3436;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 2rem;
+}
+
+.grupo-input {
+    margin-bottom: 1.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #eee;
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 0 3px rgba(108,92,231,0.1);
+}
+
+button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--color-primario);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-top: 1rem;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    background: #5b4bc4;
+}
+
+.nota {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+@media (max-width: 480px) {
+    .tarjeta {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.5rem;
+    }
+}
