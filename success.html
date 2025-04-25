@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Registro Exitoso!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="fondo-dinamico"></div>
+    
+    <main class="contenedor">
+        <div class="tarjeta">
+            <div class="cabecera">
+                <div class="icono">🎉</div>
+                <h1>¡Registro Completo!</h1>
+                <p class="subtitulo">Ahora tu amigo tiene más posibilidades de ganar</p>
+            </div>
+
+            <div class="acciones">
+                <button onclick="copiarEnlace()">📋 Copiar enlace de apoyo</button>
+                <p class="nota">Comparte este enlace con más amigos</p>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function copiarEnlace() {
+            navigator.clipboard.writeText(window.location.href);
+            alert('Enlace copiado al portapapeles');
+        }
+    </script>
+</body>
+</html>
